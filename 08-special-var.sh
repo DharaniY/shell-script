@@ -8,3 +8,4 @@ echo "Home Directory of current user  :::::::::$HOME" # To print home directory 
 echo "Which User is running this script :::::::::$USER" # To print user running script
 echo "Host Name :::::::::$HOSTNAME" # To print host name
 echo "Process ID of current shell script :::::::::$$" # To print process ID
+sleep 60

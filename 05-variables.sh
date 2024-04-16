@@ -8,4 +8,4 @@ echo "Please enter password :: "
 
 read PASSWORD # here PASSWORD is variable
 
-echo "USERNAME is :: ${USERNAME}" and PASSWORD is :: ${PASSWORD}"
+echo "USERNAME is :: ${USERNAME} and PASSWORD is :: ${PASSWORD}"

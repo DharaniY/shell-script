@@ -1,6 +1,16 @@
 #!/bin/bash
 
 USERID=($id -u)
+TIMESTAMP=$(date +%F-%H-%M-%S)
+SCRIPT_NAME=$(echo $0 | cut -d'.' -f)
+LOGFILE=/tmp/$SCRIPT_NAME-$TIMESTAMP.log
+# VALIDATION(){
+#     if [ "$1 -eq 0" ]
+#     then
+#         echo "Install of $2 is FAILED"
+#     else
+#         echo "Install of $2 is SUCCESS"
+# }
 
 if [ $USERID -eq 0 ] 
 then
@@ -14,5 +24,9 @@ echo "All packages: $@"
 for i in $@
 do
     echo "package is installing: $i"
-    dnf list installed $i
+    dnf list installed $i &>>$LOGFILE
+    if [ $? -eq 0 ]
+    then
+        echo "package is already installled....SKIPPING"
+    fi    
 done    

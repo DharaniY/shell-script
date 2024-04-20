@@ -3,7 +3,7 @@
 USERID=$(id -u) # extract username
 TIMESTAMP=$(date +%F-%H-%M-%S)
 SCRIPTNAME=$(echo $0 | cut -d'.' -f1)
-LOGFILE=temp/$SCRIPTNAME-$TIMESTAMP.log 
+LOGFILE=/tmp/$SCRIPTNAME-$TIMESTAMP.log 
 if [ $USERID -ne 0 ]
 then
     echo "Please run this script with root access"

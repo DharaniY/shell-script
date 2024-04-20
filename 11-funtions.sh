@@ -6,4 +6,6 @@ then
     echo "Please run this script with root access"
 else
     echo "You are super user"
-fi    
+fi
+dnf install mysql -y
+echo "is script proccessing?"    

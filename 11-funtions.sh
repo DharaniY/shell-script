@@ -19,22 +19,9 @@ VALIDATION(){
 }
 
 dnf install mysql -y
-VALIDATION $? "Install MySQL"
-
-if [ $? -ne 0 ]
-then
-    echo "Installation of mysql failed"
-    exit 1 # exit if this condition fails
-else
-    echo "Installation of mysql successful"    
-fi    
+VALIDATION $? "Install MySQL" 
 
 dnf install git -y
-if [ $? -ne 0 ]
-then
-    echo "Installation of git failed"
-    exit 1 # exit if this condition fails
-else
-    echo "Installation of git successful"
-fi    
+VALIDATION $? "Install GIT" 
+
 echo "is script proccessing?"    

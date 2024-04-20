@@ -1,6 +1,9 @@
 #!/bin/bash
 
 USERID=$(id -u) # extract username
+TIMESTAMP=$(date +%F-%H-%M-%S)
+SCRIPTNAME=$($0 | cut -d'.' -f1)
+LOGFILE=temp/$SCRIPTNAME-$TIMESTAMP.log 
 if [ $USERID -ne 0 ]
 then
     echo "Please run this script with root access"
@@ -18,10 +21,10 @@ VALIDATION(){
     fi    
 }
 
-dnf install mysql -y
+dnf install mysql -y &>>$LOGFILE
 VALIDATION $? "Install MySQL" 
 
-dnf install git -y
+dnf install git -y &>>$LOGFILE
 VALIDATION $? "Install GIT" 
 
 echo "is script proccessing?"    

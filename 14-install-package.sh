@@ -4,13 +4,10 @@ USERID=($id -u)
 TIMESTAMP=$(date +%F-%H-%M-%S)
 SCRIPT_NAME=$(echo $0 | cut -d'.' -f)
 LOGFILE=/tmp/$SCRIPT_NAME-$TIMESTAMP.log
-# VALIDATION(){
-#     if [ "$1 -eq 0" ]
-#     then
-#         echo "Install of $2 is FAILED"
-#     else
-#         echo "Install of $2 is SUCCESS"
-# }
+R="\e[31m"
+G="\e[32m"
+Y="\e[33m"
+N="\e[0m"
 
 if [ $USERID -eq 0 ] 
 then
@@ -27,7 +24,7 @@ do
     dnf list installed $i &>>$LOGFILE
     if [ $? -eq 0 ]
     then
-        echo "$i package is already installled....SKIPPING"
+        echo -e "$i package is already installled....$Y SKIPPING $N"
     else
         echo "$i package is not installed....need to install"    
     fi    

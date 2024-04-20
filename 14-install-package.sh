@@ -11,3 +11,7 @@ else
 fi    
 
 echo "All packages: $@"
+for i in $@
+do
+    echo "package is installing: $i"
+done    

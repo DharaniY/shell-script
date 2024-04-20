@@ -15,7 +15,6 @@ then
     exit 1 #exit if installation failed
 else
     echo -e "Installation of $2 is $G SUCCESSFUL $N"    
-}
 fi
 
 if [ $USERID -eq 0 ] 

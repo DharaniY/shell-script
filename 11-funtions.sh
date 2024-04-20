@@ -8,8 +8,14 @@ then
 else
     echo "You are super user"
 fi
+VALIDATION(){
+    echo "Exit code: $1"
+    echo "Print second argument is :$2"
+}
 
 dnf install mysql -y
+VALIDATION $? "Install MySQL"
+
 if [ $? -ne 0 ]
 then
     echo "Installation of mysql failed"

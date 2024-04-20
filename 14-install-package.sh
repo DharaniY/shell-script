@@ -8,6 +8,15 @@ R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
+VALIDATION(){
+if [ $1 -ne 0 ]
+then
+    echo -e "Installation of $2 is $R FAILED $N"
+    exit 1 #exit if installation failed
+else
+    echo -e "Installation of $2 is $G SUCCESSFUL $N"    
+}
+fi
 
 if [ $USERID -eq 0 ] 
 then
@@ -26,6 +35,8 @@ do
     then
         echo -e "$i package is already installled....$Y SKIPPING $N"
     else
-        echo "$i package is not installed....need to install"    
+        dnf install -$i -y &>>$LOGFILE
+        VALIDATION $? "installation of $i"
+        #echo "$i package is not installed....need to install"    
     fi    
 done    

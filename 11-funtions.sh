@@ -9,8 +9,13 @@ else
     echo "You are super user"
 fi
 VALIDATION(){
-    echo "Exit code: $1"
-    echo "Print second argument is :$2"
+    if [ $1 -ne 0 ]
+    then
+        echo "Installation of $2 is failed"
+        exit 1 # exit if this condition fails
+    else
+        echo "Installation of $2 is successful"    
+    fi    
 }
 
 dnf install mysql -y
